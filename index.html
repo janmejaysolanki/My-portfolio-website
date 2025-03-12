@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbai Indians - IPL Team Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Mumbai Indians</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#players">Players</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#fan-zone">Fan Zone</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="banner">
+        <h2>Welcome to the Mumbai Indians Fan Hub</h2>
+        <p>Stay updated with match schedules, player profiles, and team stats!</p>
+      
+    </section>
+    
+    <script>
+        function countdownTimer() {
+            const matchDate = new Date("March 30, 2025 18:00:00").getTime();
+            const timer = setInterval(function() {
+                let now = new Date().getTime();
+                let timeLeft = matchDate - now;
+
+                let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                if (timeLeft < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "Match Started!";
+                }
+            }, 1000);
+        }
+        countdownTimer();
+    </script>
+</body>
+</html>
